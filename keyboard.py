@@ -39,6 +39,10 @@ def stats_menu():
             InlineKeyboardButton(text="🎮 Последний матч", callback_data="last_match")
         ],
         [
+            InlineKeyboardButton(text="📈 Мета по позициям", callback_data="meta"),
+            InlineKeyboardButton(text="🏆 Лучшие герои", callback_data="top_heroes")
+        ],
+        [
             InlineKeyboardButton(text="⬅️ Назад", callback_data="back")
         ]
     ])

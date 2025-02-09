@@ -1,0 +1,1246 @@
+{
+    "1": [
+        "antimage",
+        "Anti-Mage",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER"
+        ]
+    ],
+    "2": [
+        "axe",
+        "Axe",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "3": [
+        "bane",
+        "Bane",
+        [
+            "NUKER",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "4": [
+        "bloodseeker",
+        "Bloodseeker",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "5": [
+        "crystal_maiden",
+        "Crystal Maiden",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "6": [
+        "drow_ranger",
+        "Drow Ranger",
+        [
+            "CARRY",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "7": [
+        "earthshaker",
+        "Earthshaker",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "8": [
+        "juggernaut",
+        "Juggernaut",
+        [
+            "CARRY",
+            "ESCAPE",
+            "PUSHER"
+        ]
+    ],
+    "9": [
+        "mirana",
+        "Mirana",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "10": [
+        "morphling",
+        "Morphling",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "11": [
+        "nevermore",
+        "Shadow Fiend",
+        [
+            "CARRY",
+            "NUKER"
+        ]
+    ],
+    "12": [
+        "phantom_lancer",
+        "Phantom Lancer",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "13": [
+        "puck",
+        "Puck",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "14": [
+        "pudge",
+        "Pudge",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "15": [
+        "razor",
+        "Razor",
+        [
+            "CARRY",
+            "NUKER",
+            "DURABLE",
+            "PUSHER"
+        ]
+    ],
+    "16": [
+        "sand_king",
+        "Sand King",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "17": [
+        "storm_spirit",
+        "Storm Spirit",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "18": [
+        "sven",
+        "Sven",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "19": [
+        "tiny",
+        "Tiny",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "20": [
+        "vengefulspirit",
+        "Vengeful Spirit",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "21": [
+        "windrunner",
+        "Windranger",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "22": [
+        "zuus",
+        "Zeus",
+        [
+            "CARRY",
+            "NUKER"
+        ]
+    ],
+    "23": [
+        "kunkka",
+        "Kunkka",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "25": [
+        "lina",
+        "Lina",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "26": [
+        "lion",
+        "Lion",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "27": [
+        "shadow_shaman",
+        "Shadow Shaman",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "28": [
+        "slardar",
+        "Slardar",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "29": [
+        "tidehunter",
+        "Tidehunter",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "30": [
+        "witch_doctor",
+        "Witch Doctor",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "31": [
+        "lich",
+        "Lich",
+        [
+            "NUKER",
+            "SUPPORT"
+        ]
+    ],
+    "32": [
+        "riki",
+        "Riki",
+        [
+            "CARRY",
+            "ESCAPE",
+            "DISABLER"
+        ]
+    ],
+    "33": [
+        "enigma",
+        "Enigma",
+        [
+            "INITIATOR",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "34": [
+        "tinker",
+        "Tinker",
+        [
+            "CARRY",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "35": [
+        "sniper",
+        "Sniper",
+        [
+            "CARRY",
+            "NUKER"
+        ]
+    ],
+    "36": [
+        "necrolyte",
+        "Necrophos",
+        [
+            "CARRY",
+            "NUKER",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "37": [
+        "warlock",
+        "Warlock",
+        [
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "38": [
+        "beastmaster",
+        "Beastmaster",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "39": [
+        "queenofpain",
+        "Queen of Pain",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER"
+        ]
+    ],
+    "40": [
+        "venomancer",
+        "Venomancer",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "41": [
+        "faceless_void",
+        "Faceless Void",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "42": [
+        "skeleton_king",
+        "Wraith King",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "43": [
+        "death_prophet",
+        "Death Prophet",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "44": [
+        "phantom_assassin",
+        "Phantom Assassin",
+        [
+            "CARRY",
+            "ESCAPE"
+        ]
+    ],
+    "45": [
+        "pugna",
+        "Pugna",
+        [
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "46": [
+        "templar_assassin",
+        "Templar Assassin",
+        [
+            "CARRY",
+            "ESCAPE"
+        ]
+    ],
+    "47": [
+        "viper",
+        "Viper",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "48": [
+        "luna",
+        "Luna",
+        [
+            "CARRY",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "49": [
+        "dragon_knight",
+        "Dragon Knight",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "50": [
+        "dazzle",
+        "Dazzle",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "51": [
+        "rattletrap",
+        "Clockwerk",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "52": [
+        "leshrac",
+        "Leshrac",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "53": [
+        "furion",
+        "Nature's Prophet",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "54": [
+        "life_stealer",
+        "Lifestealer",
+        [
+            "CARRY",
+            "ESCAPE",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "55": [
+        "dark_seer",
+        "Dark Seer",
+        [
+            "ESCAPE",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "56": [
+        "clinkz",
+        "Clinkz",
+        [
+            "CARRY",
+            "ESCAPE",
+            "PUSHER"
+        ]
+    ],
+    "57": [
+        "omniknight",
+        "Omniknight",
+        [
+            "NUKER",
+            "DURABLE",
+            "SUPPORT"
+        ]
+    ],
+    "58": [
+        "enchantress",
+        "Enchantress",
+        [
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "59": [
+        "huskar",
+        "Huskar",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE"
+        ]
+    ],
+    "60": [
+        "night_stalker",
+        "Night Stalker",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "61": [
+        "broodmother",
+        "Broodmother",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "62": [
+        "bounty_hunter",
+        "Bounty Hunter",
+        [
+            "ESCAPE",
+            "NUKER"
+        ]
+    ],
+    "63": [
+        "weaver",
+        "Weaver",
+        [
+            "CARRY",
+            "ESCAPE"
+        ]
+    ],
+    "64": [
+        "jakiro",
+        "Jakiro",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "65": [
+        "batrider",
+        "Batrider",
+        [
+            "ESCAPE",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "66": [
+        "chen",
+        "Chen",
+        [
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "67": [
+        "spectre",
+        "Spectre",
+        [
+            "CARRY",
+            "ESCAPE",
+            "DURABLE"
+        ]
+    ],
+    "68": [
+        "ancient_apparition",
+        "Ancient Apparition",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "69": [
+        "doom_bringer",
+        "Doom",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "70": [
+        "ursa",
+        "Ursa",
+        [
+            "CARRY",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "71": [
+        "spirit_breaker",
+        "Spirit Breaker",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "72": [
+        "gyrocopter",
+        "Gyrocopter",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "73": [
+        "alchemist",
+        "Alchemist",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "74": [
+        "invoker",
+        "Invoker",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "75": [
+        "silencer",
+        "Silencer",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "76": [
+        "obsidian_destroyer",
+        "Outworld Destroyer",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "77": [
+        "lycan",
+        "Lycan",
+        [
+            "CARRY",
+            "ESCAPE",
+            "DURABLE",
+            "PUSHER"
+        ]
+    ],
+    "78": [
+        "brewmaster",
+        "Brewmaster",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "79": [
+        "shadow_demon",
+        "Shadow Demon",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "80": [
+        "lone_druid",
+        "Lone Druid",
+        [
+            "CARRY",
+            "DURABLE",
+            "PUSHER"
+        ]
+    ],
+    "81": [
+        "chaos_knight",
+        "Chaos Knight",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "82": [
+        "meepo",
+        "Meepo",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "83": [
+        "treant",
+        "Treant Protector",
+        [
+            "ESCAPE",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "84": [
+        "ogre_magi",
+        "Ogre Magi",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "85": [
+        "undying",
+        "Undying",
+        [
+            "NUKER",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "86": [
+        "rubick",
+        "Rubick",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "87": [
+        "disruptor",
+        "Disruptor",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "88": [
+        "nyx_assassin",
+        "Nyx Assassin",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "89": [
+        "naga_siren",
+        "Naga Siren",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "90": [
+        "keeper_of_the_light",
+        "Keeper of the Light",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "91": [
+        "wisp",
+        "Io",
+        [
+            "ESCAPE",
+            "NUKER",
+            "SUPPORT"
+        ]
+    ],
+    "92": [
+        "visage",
+        "Visage",
+        [
+            "NUKER",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT",
+            "PUSHER"
+        ]
+    ],
+    "93": [
+        "slark",
+        "Slark",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "94": [
+        "medusa",
+        "Medusa",
+        [
+            "CARRY",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "95": [
+        "troll_warlord",
+        "Troll Warlord",
+        [
+            "CARRY",
+            "DURABLE",
+            "DISABLER",
+            "PUSHER"
+        ]
+    ],
+    "96": [
+        "centaur",
+        "Centaur Warrunner",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "97": [
+        "magnataur",
+        "Magnus",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "98": [
+        "shredder",
+        "Timbersaw",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DURABLE"
+        ]
+    ],
+    "99": [
+        "bristleback",
+        "Bristleback",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE"
+        ]
+    ],
+    "100": [
+        "tusk",
+        "Tusk",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "101": [
+        "skywrath_mage",
+        "Skywrath Mage",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "102": [
+        "abaddon",
+        "Abaddon",
+        [
+            "CARRY",
+            "DURABLE",
+            "SUPPORT"
+        ]
+    ],
+    "103": [
+        "elder_titan",
+        "Elder Titan",
+        [
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "104": [
+        "legion_commander",
+        "Legion Commander",
+        [
+            "CARRY",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "105": [
+        "techies",
+        "Techies",
+        [
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "106": [
+        "ember_spirit",
+        "Ember Spirit",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "107": [
+        "earth_spirit",
+        "Earth Spirit",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "108": [
+        "abyssal_underlord",
+        "Underlord",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DURABLE",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "109": [
+        "terrorblade",
+        "Terrorblade",
+        [
+            "CARRY",
+            "NUKER",
+            "PUSHER"
+        ]
+    ],
+    "110": [
+        "phoenix",
+        "Phoenix",
+        [
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "111": [
+        "oracle",
+        "Oracle",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "112": [
+        "winter_wyvern",
+        "Winter Wyvern",
+        [
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "113": [
+        "arc_warden",
+        "Arc Warden",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER"
+        ]
+    ],
+    "114": [
+        "monkey_king",
+        "Monkey King",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DISABLER"
+        ]
+    ],
+    "119": [
+        "dark_willow",
+        "Dark Willow",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "120": [
+        "pangolier",
+        "Pangolier",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "121": [
+        "grimstroke",
+        "Grimstroke",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "123": [
+        "hoodwink",
+        "Hoodwink",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "126": [
+        "void_spirit",
+        "Void Spirit",
+        [
+            "CARRY",
+            "ESCAPE",
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "128": [
+        "snapfire",
+        "Snapfire",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "129": [
+        "mars",
+        "Mars",
+        [
+            "CARRY",
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "131": [
+        "ringmaster",
+        "Ringmaster",
+        [
+            "ESCAPE",
+            "NUKER",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "135": [
+        "dawnbreaker",
+        "Dawnbreaker",
+        [
+            "CARRY",
+            "DURABLE"
+        ]
+    ],
+    "136": [
+        "marci",
+        "Marci",
+        [
+            "CARRY",
+            "ESCAPE",
+            "INITIATOR",
+            "DISABLER",
+            "SUPPORT"
+        ]
+    ],
+    "137": [
+        "primal_beast",
+        "Primal Beast",
+        [
+            "INITIATOR",
+            "DURABLE",
+            "DISABLER"
+        ]
+    ],
+    "138": [
+        "muerta",
+        "Muerta",
+        [
+            "CARRY",
+            "NUKER",
+            "DISABLER"
+        ]
+    ],
+    "145": [
+        "kez",
+        "Kez",
+        [
+            "CARRY",
+            "ESCAPE",
+            "DISABLER"
+        ]
+    ]
+}

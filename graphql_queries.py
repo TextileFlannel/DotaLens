@@ -51,16 +51,17 @@ query ($steamId: Long!) {
   player(steamAccountId: $steamId) {
     matches(request: {take: 1}) {
       id
-      didRadiantWin
       durationSeconds
       startDateTime
       radiantKills
       direKills
       players(steamAccountId: $steamId) {
         hero {
+          id
           displayName
           shortName
         }
+        imp
         level
         numLastHits
         numDenies
@@ -82,6 +83,16 @@ query ($steamId: Long!) {
         backpack1Id
         backpack2Id
       }
+    }
+  }
+  heroStats {
+    stats {
+      kills
+      deaths
+      assists
+      networth
+      xp
+      time
     }
   }
 }
@@ -98,21 +109,38 @@ query {
 }
 """
 
+
+HERO = """
+query {
+  constants {
+    heroes {
+      id
+      shortName
+      displayName
+      roles {
+        roleId
+      }
+    }
+  }
+}
+"""
+
 MATCH_ID_QUERY = """
 query ($steamId: Long!, $matchId: Long!) {
   player(steamAccountId: $steamId) {
     matches(request: {matchIds: [$matchId]}) {
       id
-      didRadiantWin
       durationSeconds
       startDateTime
       radiantKills
       direKills
       players(steamAccountId: $steamId) {
         hero {
+          id
           displayName
           shortName
         }
+        imp
         level
         numLastHits
         numDenies
@@ -134,6 +162,61 @@ query ($steamId: Long!, $matchId: Long!) {
         backpack1Id
         backpack2Id
       }
+    }
+  }
+  heroStats {
+    stats {
+      kills
+      deaths
+      assists
+      networth
+      xp
+      time
+    }
+  }
+}
+"""
+
+
+META_QUERY = """
+query {
+ heroStats {
+    winMonth (take: 1){
+      heroId
+      winCount
+      matchCount
+    }
+  }
+}
+"""
+
+
+TOP_HEROES = """
+query ($steamId: Long!, $take: Int!) {
+  player(steamAccountId: $steamId) {
+    matches(request: {take: $take}) {
+      players(steamAccountId: $steamId) {
+        hero {
+          id
+        }
+        kills
+        deaths
+        assists
+        isVictory
+        goldPerMinute
+        experiencePerMinute
+        networth
+      }
+    }
+  }
+  heroStats {
+    stats {
+      kills
+      deaths
+      assists
+      networth
+      xp
+      time
     }
   }
 }

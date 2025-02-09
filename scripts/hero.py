@@ -1,7 +1,7 @@
 import json
 import aiohttp
 from config import STRATZ_TOKEN
-from graphql_queries import ITEMS
+from graphql_queries import HERO
 
 async def make_graphql_request(query: str):
     url = "https://api.stratz.com/graphql"
@@ -23,16 +23,17 @@ async def make_graphql_request(query: str):
 async def fetch_and_save_items():
     try:
         # Выполняем запрос к API
-        response = await make_graphql_request(ITEMS)
+        response = await make_graphql_request(HERO)
 
         # Извлекаем данные о предметах
-        items_mas = response.get('data', {}).get('constants', {}).get('items', [])
-        items = {item['id']: item['displayName'] for item in items_mas}
+        hero_mas = response.get('data', {}).get('constants', {}).get('heroes', [])
+        print(hero_mas)
+        heroes = {hero['id']: [hero['shortName'], hero['displayName'], [i['roleId'] for i in hero['roles']]] for hero in hero_mas}
 
         # Сохраняем результат в файл
-        with open('../jsons/items.json', 'w', encoding='utf-8') as file:
-            json.dump(items, file, ensure_ascii=False, indent=4)
-        print("Items successfully saved to items.json")
+        with open('../jsons/heroes.json', 'w', encoding='utf-8') as file:
+            json.dump(heroes, file, ensure_ascii=False, indent=4)
+        print("Hero successfully saved to items.json")
 
     except Exception as e:
         print(f"An error occurred: {e}")
