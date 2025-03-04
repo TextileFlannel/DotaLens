@@ -3,6 +3,7 @@ import aiohttp
 from config import STRATZ_TOKEN
 from graphql_queries import HERO
 
+
 async def make_graphql_request(query: str):
     url = "https://api.stratz.com/graphql"
     headers = {
@@ -20,6 +21,7 @@ async def make_graphql_request(query: str):
                 raise Exception(f"Request failed with status {response.status}")
             return await response.json()
 
+
 async def fetch_and_save_items():
     try:
         # Выполняем запрос к API
@@ -28,7 +30,8 @@ async def fetch_and_save_items():
         # Извлекаем данные о предметах
         hero_mas = response.get('data', {}).get('constants', {}).get('heroes', [])
         print(hero_mas)
-        heroes = {hero['id']: [hero['shortName'], hero['displayName'], [i['roleId'] for i in hero['roles']]] for hero in hero_mas}
+        heroes = {hero['id']: [hero['shortName'], hero['displayName'], [i['roleId'] for i in hero['roles']]] for hero in
+                  hero_mas}
 
         # Сохраняем результат в файл
         with open('../jsons/heroes.json', 'w', encoding='utf-8') as file:
@@ -38,7 +41,9 @@ async def fetch_and_save_items():
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
 # Для запуска асинхронной функции
 if __name__ == "__main__":
     import asyncio
+
     asyncio.run(fetch_and_save_items())

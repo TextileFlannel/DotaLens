@@ -3,6 +3,7 @@ import aiohttp
 from config import STRATZ_TOKEN
 from graphql_queries import ITEMS
 
+
 async def make_graphql_request(query: str):
     url = "https://api.stratz.com/graphql"
     headers = {
@@ -19,6 +20,7 @@ async def make_graphql_request(query: str):
             if response.status != 200:
                 raise Exception(f"Request failed with status {response.status}")
             return await response.json()
+
 
 async def fetch_and_save_items():
     try:
@@ -37,7 +39,9 @@ async def fetch_and_save_items():
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
 # Для запуска асинхронной функции
 if __name__ == "__main__":
     import asyncio
+
     asyncio.run(fetch_and_save_items())

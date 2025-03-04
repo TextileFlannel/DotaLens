@@ -109,7 +109,6 @@ query {
 }
 """
 
-
 HERO = """
 query {
   constants {
@@ -177,7 +176,6 @@ query ($steamId: Long!, $matchId: Long!) {
 }
 """
 
-
 META_QUERY = """
 query {
  heroStats {
@@ -189,7 +187,6 @@ query {
   }
 }
 """
-
 
 TOP_HEROES = """
 query ($steamId: Long!, $take: Int!) {

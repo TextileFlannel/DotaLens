@@ -3,7 +3,7 @@ import random
 from operator import itemgetter
 import uuid
 from aiogram import Router, F
-from aiogram.types import Message, CallbackQuery, InputMediaPhoto
+from aiogram.types import Message, CallbackQuery, BufferedInputFile
 from aiogram.filters import Command
 from config import *
 from database import get_user, create_or_update_user
@@ -13,6 +13,9 @@ from graphql_queries import *
 import aiohttp
 import re
 from datetime import datetime
+import matplotlib.pyplot as plt
+import io
+
 
 router = Router()
 
@@ -590,9 +593,15 @@ async def show_top_heroes(callback: CallbackQuery):
                 f'📢Ваши показатели средние или ниже. Есть возможность улучшить свои результаты и стать более эффективным для команды.\n'
                 )
 
+        plot_buf = plot_graph(scores)
+        photo = BufferedInputFile(
+            plot_buf.getvalue(),
+            filename="heroes_chart.png"
+        )
+
         await callback.message.delete()
         await callback.message.answer_photo(
-            photo=f"https://cdn.stratz.com/images/dota2/heroes/{scores_sorted[0]['shortName']}_horz.png",
+            photo=photo,
             caption=text,
             reply_markup=back_button()
         )
@@ -603,6 +612,7 @@ async def show_top_heroes(callback: CallbackQuery):
             reply_markup=back_button()
         )
     finally:
+        #plot_buf.close()
         await callback.answer()
 
 
@@ -624,3 +634,47 @@ def analytics(match: dict, stat: dict):
     score = (0.3 * kda + 0.25 * gpm + 0.25 * xpm + 0.2 * net) * 10
 
     return (score, match['isVictory'], match['kills'], match['deaths'], match['assists'], [kda_p, xpm_p, gpm_p, net_p])
+
+
+def plot_graph(s):
+    hero_names = [item['displayName'] for item in s]
+    scores = [item['score'] for item in s]
+
+    # Определяем цвета столбцов: зеленый для положительных, красный для отрицательных
+    colors = ['green' if score >= 0 else 'red' for score in scores]
+
+    # Создаем фигуру и оси
+    fig, ax = plt.subplots(figsize=(12, 6))  # Увеличенный размер для читаемости
+
+    # Строим столбчатую диаграмму
+    bars = ax.bar(hero_names, scores, color=colors)
+
+    # Настройка визуализации
+    ax.set_xlabel('Герой')
+    ax.set_ylabel('Score')
+    ax.set_title('Рейтинг героев по Score')
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+
+    # Поворот подписей оси X для лучшей читаемости
+    plt.xticks(rotation=45, ha='right')
+
+    # Добавляем значения над столбцами
+    for bar in bars:
+        height = bar.get_height()
+        ax.annotate(f'{height:.1f}',
+                    xy=(bar.get_x() + bar.get_width() / 2, height),
+                    xytext=(0, 3),  # Смещение над столбцом
+                    textcoords="offset points",
+                    ha='center', va='bottom')
+
+    # Добавляем легенду
+    ax.bar([], [], color='green', label='Положительный Score')
+    ax.bar([], [], color='red', label='Отрицательный Score')
+    ax.legend()
+
+    # Сохраняем график в буфер и закрываем фигуру
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight')
+    plt.close(fig)
+
+    return buf

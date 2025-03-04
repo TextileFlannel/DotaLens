@@ -1,5 +1,6 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
+
 def main_menu():
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
@@ -12,6 +13,7 @@ def main_menu():
     ])
     return keyboard
 
+
 def back_button():
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
         [
@@ -19,6 +21,7 @@ def back_button():
         ]
     ])
     return keyboard
+
 
 def settings_menu():
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
