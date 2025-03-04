@@ -1,11 +1,13 @@
 import json
 import random
 from operator import itemgetter
-
+import uuid
 from aiogram import Router, F
 from aiogram.types import Message, CallbackQuery, InputMediaPhoto
 from aiogram.filters import Command
-from config import STRATZ_TOKEN, STEAM_API_KEY
+from config import *
+from database import get_user, create_or_update_user
+from cache import cache
 from keyboard import *
 from graphql_queries import *
 import aiohttp
@@ -14,12 +16,18 @@ from datetime import datetime
 
 router = Router()
 
-user_data = {}
 items = {}
 hero = {}
 
 
 async def make_graphql_request(query: str, variables: dict):
+    cache_key_data = json.dumps({"query": query, "variables": variables}, sort_keys=True)
+    cache_key = f"stratz:{uuid.uuid5(uuid.NAMESPACE_URL, cache_key_data.encode('utf-8'))}"
+
+    # Проверяем кэш
+    if cached := cache.get(cache_key):
+        return json.loads(cached)
+
     url = "https://api.stratz.com/graphql"
     headers = {
         "Authorization": f"Bearer {STRATZ_TOKEN}",
@@ -35,7 +43,9 @@ async def make_graphql_request(query: str, variables: dict):
     async with aiohttp.ClientSession() as session:
         async with session.post(url, json=payload, headers=headers) as response:
             print(response)
-            return await response.json()
+            data = await response.json()
+            cache.set(cache_key, json.dumps(data), 3600)  # Кэш на 1 час
+            return data
 
 
 async def get_steam_id_from_url(profile_url: str) -> str:
@@ -76,11 +86,16 @@ async def validate_steam_id(steam_id: str) -> bool:
 
 @router.message(Command("start"))
 async def start(message: Message):
-    global items, user_data
-    user_data[message.from_user.id] = None
+    global items
     if not items:
         with open('jsons/items.json', 'r') as f:
             items = json.load(f)
+
+    user = get_user(message.from_user.id)
+    if user:
+        await message.answer("Вы уже авторизованы!", reply_markup=main_menu())
+        return
+
     await message.answer(
         "Привет! Я бот для отслеживания статистики Dota 2.\n"
         "Отправь мне ссылку на твой Steam профиль (например, https://steamcommunity.com/id/Young_Flexe или https://steamcommunity.com/profiles/76561198875033785):"
@@ -100,20 +115,17 @@ async def info(message: Message):
 
 @router.message(F.text)
 async def process_steam_url(message: Message):
-    # Проверяем, является ли сообщение ссылкой
     if not re.match(r"https?://steamcommunity\.com/(profiles/\d+|id/\w+)", message.text):
         await message.answer("Это не похоже на ссылку на Steam профиль. Попробуй ещё раз.")
         return
 
-    # Извлекаем SteamID64 из ссылки
     steam_id = await get_steam_id_from_url(message.text)
     if not steam_id:
         await message.answer("Не удалось извлечь Steam ID из ссылки. Проверь ссылку и попробуй ещё раз.")
         return
 
-    # Проверяем валидность Steam ID через STRATZ API
     if await validate_steam_id(steam_id):
-        user_data[message.from_user.id] = steam_id
+        create_or_update_user(message.from_user.id, steam_id)
         await message.answer("Авторизация успешна!", reply_markup=main_menu())
     else:
         await message.answer("Неверный Steam ID. Попробуй ещё раз.")
@@ -122,12 +134,17 @@ async def process_steam_url(message: Message):
 @router.callback_query(F.data == "profile")
 async def show_profile(callback: CallbackQuery):
     try:
-        steam_id = user_data.get(callback.from_user.id)
+        user = get_user(callback.from_user.id)
 
-        response = await make_graphql_request(
-            PROFILE_QUERY,
-            {"steamId": int(steam_id)}
-        )
+        steam_id = user[2]
+        cache_key = f"profile:{steam_id}"
+
+        if cached := cache.get(cache_key):
+            response = json.loads(cached)
+        else:
+            response = await make_graphql_request(PROFILE_QUERY, {"steamId": int(steam_id)})
+            cache.set(cache_key, json.dumps(response), 600)
+
         data = response.get('data', {}).get('player', {})
         if not data:
             return await callback.message.edit_text("Данные не найдены")
@@ -214,11 +231,16 @@ async def show_stats_menu(callback: CallbackQuery):
 @router.callback_query(F.data == "match_history")
 async def show_match_history(callback: CallbackQuery):
     try:
-        steam_id = user_data.get(callback.from_user.id)
-        response = await make_graphql_request(
-            MATCH_HISTORY_QUERY,
-            {"steamId": int(steam_id), "take": 6}
-        )
+        user = get_user(callback.from_user.id)
+
+        steam_id = user[2]
+        cache_key = f"match_history:{steam_id}"
+
+        if cached := cache.get(cache_key):
+            response = json.loads(cached)
+        else:
+            response = await make_graphql_request(MATCH_HISTORY_QUERY, {"steamId": int(steam_id), "take": 6})
+            cache.set(cache_key, json.dumps(response), 300)  # 5 минут кэша
 
         matches = response.get('data', {}).get('player', {}).get('matches', [])
         if not matches:
@@ -264,15 +286,18 @@ async def show_match_history(callback: CallbackQuery):
 @router.callback_query(F.data == "last_match")
 async def show_last_match(callback: CallbackQuery):
     try:
-        steam_id = user_data.get(callback.from_user.id)
-        response = await make_graphql_request(
-            LAST_MATCH_QUERY,
-            {"steamId": int(steam_id)}
-        )
+        user = get_user(callback.from_user.id)
+        steam_id = user[2]
+        cache_key = f"last_match:{steam_id}"
+
+        if cached := cache.get(cache_key):
+            response = json.loads(cached)
+        else:
+            response = await make_graphql_request(LAST_MATCH_QUERY, {"steamId": int(steam_id)})
+            cache.set(cache_key, json.dumps(response), 300)
 
         match = response.get('data', {}).get('player', {}).get('matches', [])
         avg_stats = response.get('data', {}).get('heroStats', {}).get('stats', [])
-
         if not match:
             return await callback.message.edit_text(
                 "Последний матч не найден",
@@ -363,12 +388,16 @@ async def show_last_match(callback: CallbackQuery):
 @router.callback_query(F.data.startswith("match_id:"))
 async def show_match_ids(callback: CallbackQuery):
     try:
-        _, id = callback.data.split(":")
-        steam_id = user_data.get(callback.from_user.id)
-        response = await make_graphql_request(
-            MATCH_ID_QUERY,
-            {"steamId": int(steam_id), "matchId": int(id)}
-        )
+        user = get_user(callback.from_user.id)
+
+        _, match_id = callback.data.split(":")
+        cache_key = f"match:{match_id}"
+
+        if cached := cache.get(cache_key):
+            response = json.loads(cached)
+        else:
+            response = await make_graphql_request(MATCH_ID_QUERY, {"steamId": int(user[2]), "matchId": int(match_id)})
+            cache.set(cache_key, json.dumps(response), 3600)
 
         match = response.get('data', {}).get('player', {}).get('matches', [])
         avg_stats = response.get('data', {}).get('heroStats', {}).get('stats', [])
@@ -517,14 +546,19 @@ async def show_meta(callback: CallbackQuery):
 @router.callback_query(F.data == "top_heroes")
 async def show_top_heroes(callback: CallbackQuery):
     try:
-        steam_id = user_data.get(callback.from_user.id)
+        user = get_user(callback.from_user.id)
+        steam_id = user[2]
+        cache_key = f"top_heroes:{steam_id}"
+
         take = 25
-        user_response = await make_graphql_request(
-            TOP_HEROES,
-            {"steamId": int(steam_id), 'take': take}
-        )
-        matches = user_response.get('data', {}).get('player', {}).get('matches', [])
-        avg_stats = user_response.get('data', {}).get('heroStats', {}).get('stats', [])
+        if cached := cache.get(cache_key):
+            response = json.loads(cached)
+        else:
+            response = await make_graphql_request(TOP_HEROES, {"steamId": int(steam_id), "take": take})
+            cache.set(cache_key, json.dumps(response), 1800)
+
+        matches = response.get('data', {}).get('player', {}).get('matches', [])
+        avg_stats = response.get('data', {}).get('heroStats', {}).get('stats', [])
 
         win, kills, deaths, assists, scores = 0, 0, 0, 0, []
         with open('jsons/heroes.json', 'r') as f:

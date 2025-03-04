@@ -1,10 +1,13 @@
 from aiogram import Bot, Dispatcher
 from config import TOKEN
 from handlers import router
+from database import init_db
 import logging
+from cache import cache
 
 
 async def main():
+    init_db()
     bot = Bot(token=TOKEN)
     dp = Dispatcher()
     dp.include_router(router)
