@@ -27,7 +27,6 @@ async def make_graphql_request(query: str, variables: dict):
     cache_key_data = json.dumps({"query": query, "variables": variables}, sort_keys=True)
     cache_key = f"stratz:{uuid.uuid5(uuid.NAMESPACE_URL, cache_key_data.encode('utf-8'))}"
 
-    # Проверяем кэш
     if cached := cache.get(cache_key):
         return json.loads(cached)
 
@@ -350,7 +349,7 @@ async def show_last_match(callback: CallbackQuery):
             f'XPM: {round(avg_stats[hero_id-1]['xp'] / avg_stats[hero_id-1]['time'], 1)}({round(data[5][1], 1)}%)\n'
             f'Ценность: {round(avg_stats[hero_id-1]['networth'], 1)}({round(data[5][3], 1)}%)\n'
             f"🤖Итоговая оценка по версии DotaLens: {round(data[0], 1)} Score \n"
-            f"👾Итоговая оценка по версии Stratz:\nScore | {player['imp']} | "
+            #f"👾Итоговая оценка по версии Stratz:\nScore | {player['imp']} | "
         )
 
         if -40 >= player['imp']:
@@ -448,7 +447,7 @@ async def show_match_ids(callback: CallbackQuery):
             f'XPM: {round(avg_stats[hero_id-1]['xp'] / avg_stats[hero_id-1]['time'], 1)}({round(data[5][1], 1)}%)\n'
             f'Ценность: {round(avg_stats[hero_id-1]['networth'], 1)}({round(data[5][3], 1)}%)\n'
             f"🤖Итоговая оценка по версии DotaLens: {round(data[0], 1)} Score \n"
-            f"👾Итоговая оценка по версии Stratz:\nScore | {player['imp']} | "
+            #f"👾Итоговая оценка по версии Stratz:\nScore | {player['imp']} | "
         )
 
         if -40 >= player['imp']:

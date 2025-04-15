@@ -10,7 +10,7 @@ class Cache:
         self.active = True
         try:
             self.redis = redis.Redis.from_url(REDIS_URL, socket_timeout=3)
-            self.redis.ping()  # Проверка соединения
+            self.redis.ping()
         except Exception as e:
             self.active = False
             logger.warning(f"Redis недоступен: {e}. Кэширование отключено.")

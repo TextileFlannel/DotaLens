@@ -218,3 +218,14 @@ query ($steamId: Long!, $take: Int!) {
   }
 }
 """
+
+
+TEST = """
+query {
+  constants {
+    hero(id: 1) {
+      displayName
+    }
+  }
+}
+"""
